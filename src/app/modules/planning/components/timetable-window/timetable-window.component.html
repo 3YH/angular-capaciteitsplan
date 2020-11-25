@@ -1,0 +1,7 @@
+<ng-container *ngFor="let employee of timetableWindow?.scheduledEmployees">
+  <span class="employee"> {{ employee?.actorId }}</span>
+  <button mat-icon-button (click)="removeAgent(employee)">
+    <mat-icon>close</mat-icon>
+  </button>
+  <br />
+</ng-container>

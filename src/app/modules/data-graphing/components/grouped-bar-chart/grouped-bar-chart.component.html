@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-content>
+    <ngx-charts-bar-vertical-2d
+      [view]="[1000, 500]"
+      [scheme]="colorScheme"
+      [results]="groupedBarChartData"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [legendTitle]="title"
+    >
+    </ngx-charts-bar-vertical-2d>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-chip-list [multiple]="false">
+      <ng-container *ngFor="let accessor of propertyAccessors" selected>
+        <mat-chip
+          #chip="matChip"
+          [selected]="chip.value === 'Week'"
+          (click)="onChipSelected(chip.value); chip.toggleSelected()"
+          >{{ accessor.propertyName }}</mat-chip
+        >
+      </ng-container>
+    </mat-chip-list>
+  </mat-card-footer>
+</mat-card>

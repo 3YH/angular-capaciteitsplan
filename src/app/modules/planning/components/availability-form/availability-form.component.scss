@@ -1,0 +1,22 @@
+#availabilityForm {
+    .mat-expansion-panel-header-title {
+        font-size: 16px;
+        color: rgb(97, 97, 97)
+    }
+
+    .mat-form-field {
+        margin: 0 20px 0 0;
+    }
+
+    .mat-card-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0;
+        padding: 0;
+
+        .mat-raised-button {
+            margin: 10px 10px 0 0;
+            text-transform: uppercase;
+        }
+    }
+}

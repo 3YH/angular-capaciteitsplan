@@ -1,0 +1,25 @@
+span {
+  color: #465158;
+}
+
+.employee {
+  font-weight: 500;
+}
+
+.mat-icon-button {
+  height: 23px;
+  width: 23px;
+
+  .mat-icon {
+    color: #b6bdc2;
+    height: 23px !important;
+    width: 23px !important;
+    font-size: 23px !important;
+    vertical-align: middle;
+    padding: 0 0 5px 3px;
+
+    &:hover {
+      color: #555f66;
+    }
+  }
+}

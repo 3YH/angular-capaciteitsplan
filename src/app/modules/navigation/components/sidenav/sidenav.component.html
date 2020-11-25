@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list class="menu">
+      <mat-list-item [routerLink]="['availability-form']"
+        >Toolkit</mat-list-item
+      >
+      <mat-list-item [routerLink]="['availability-form']"
+        >Insights</mat-list-item
+      >
+      <mat-list-item [routerLink]="['forecast-and-plan']"
+        >Forecast & plan</mat-list-item
+      >
+      <mat-list-item [routerLink]="['schedule']">Schedule</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

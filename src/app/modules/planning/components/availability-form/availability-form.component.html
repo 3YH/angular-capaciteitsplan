@@ -1,0 +1,139 @@
+<mat-card>
+  <form
+    id="availabilityForm"
+    [formGroup]="availabilityForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Persoonsgegevens
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="personal-details">
+            <div class="name">
+              <mat-form-field>
+                <input
+                  matInput
+                  formControlName="firstname"
+                  placeholder="Voornaam"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  formControlName="middlename"
+                  placeholder="Tussenvoegsel"
+                />
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  formControlName="lastname"
+                  placeholder="Achternaam"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="address">
+              <mat-form-field>
+                <input
+                  matInput
+                  formControlName="address"
+                  placeholder="Adres"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  formControlName="zipcode"
+                  placeholder="Postcode"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="city">
+              <mat-form-field>
+                <input
+                  matInput
+                  formControlName="city"
+                  placeholder="Woonplaats"
+                  required
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Werktijden contract
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="workhours">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="minHours"
+                placeholder="Minimale uren p/w"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="maxHours"
+                required
+                placeholder="Maximale uren p/w"
+              />
+            </mat-form-field>
+          </div>
+          <div class="dates">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="startDate"
+                [matDatepicker]="startDate"
+                placeholder="Startdatum"
+                required
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="startDate"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="endDate"
+                [matDatepicker]="endDate"
+                placeholder="Einddatum"
+                required
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="endDate"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        type="submit"
+        [disabled]="!availabilityForm.valid"
+        color="primary"
+      >
+        Opslaan
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

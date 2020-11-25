@@ -1,0 +1,20 @@
+<div class="employee-list">
+  <div class="header">
+    <span>Medewerkers</span>
+  </div>
+  <mat-list
+    cdkDropList
+    id="employee-list"
+    class="drag-list"
+    (cdkDropListDropped)="dropEmployee($event)"
+  >
+    <mat-list-item
+      class="drag-box"
+      *ngFor="let employee of employees"
+      cdkDrag
+      [cdkDragData]="employee"
+    >
+      <app-employee [employee]="employee"></app-employee>
+    </mat-list-item>
+  </mat-list>
+</div>

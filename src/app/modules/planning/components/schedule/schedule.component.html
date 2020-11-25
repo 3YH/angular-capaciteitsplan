@@ -1,0 +1,57 @@
+<mat-grid-list cols="4" rowHeight="100%" gutterSize="15px" cdkDropListGroup>
+  <mat-grid-tile colspan="3">
+    <mat-card>
+      <table class="table table-compact">
+        <tbody>
+          <tr>
+            <ng-container *ngFor="let day of days; let i = index">
+              <th>
+                <span class="day">{{ day }}</span>
+                <span class="day-number">{{ i + 1 }}</span>
+                <span class="total-planned">
+                  <mat-icon>how_to_reg</mat-icon>
+                  {{ getTotalPlannedTime(day) }}
+                </span>
+              </th>
+            </ng-container>
+          </tr>
+          <ng-container *ngFor="let timeslot of timeslots; let i = index">
+            <tr>
+              <ng-container *ngFor="let day of days">
+                <td
+                  (cdkDropListEntered)="validate($event, timeslot, day)"
+                  (cdkDropListDropped)="
+                    dropEmployeeInTimetableWindow($event, timeslot, day)
+                  "
+                  cdkDropList
+                  [ngClass]="{
+                    'calendar-event': events.includes(
+                      timeslot.startTime + timeslot.endTime + day
+                    )
+                  }"
+                >
+                  <app-timetable-window
+                    (removeEvent)="
+                      removeEmployeeFromSchedule($event, timeslot, day)
+                    "
+                    [timetableWindow]="getTimetableWindow(timeslot, day)"
+                  >
+                  </app-timetable-window>
+                </td>
+              </ng-container>
+              <td class="td-timeslot">
+                <span *ngIf="i === 0" class="starttime">{{
+                  timeslot.startTime
+                }}</span
+                ><span class="endtime">{{ timeslot.endTime }}</span>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    <app-employee-list></app-employee-list>
+  </mat-grid-tile>
+</mat-grid-list>
